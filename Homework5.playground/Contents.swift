@@ -13,6 +13,18 @@ Exercise 1
      weight = 0.66
  4.print("My \(someOrange.weight) kg orange has \(someOrange.color) color and \(someOrange.taste) taste")
 */
+
+class Orange {
+    var color = ""
+    var taste = ""
+    var weight = 0.0
+}
+let someOrange = Orange()
+someOrange.color = "Orange"
+someOrange.taste = "Sweet"
+someOrange.weight = 0.66
+
+print("My \(someOrange.weight) kg orange has \(someOrange.color) color and \(someOrange.taste) taste.")
 /*
 Exercise 2
 1.Create new Parent(Superclass) Class Figure. Inside the Class declare:
@@ -30,3 +42,41 @@ Exercise 2
  5.Make Class example from Rectangle Class and named it as myRectangle and give a value as you want for height and width.
  6.Finally call myRectangle.description()
 */
+class Figure {
+    var height: Float
+    var width: Float
+    var radius: Float
+    var square: Float
+    var perimeter: Float
+    
+    init(height: Float, width: Float, radius: Float, square: Float, perimeter: Float){
+        self.height = height
+        self.width = width
+        self.radius = radius
+        self.square = square
+        self.perimeter = perimeter
+        
+    }
+    func squareOfFigure() -> Float {
+        return square
+    }
+    func perimeterOfFigure() -> Float {
+        return perimeter
+    }
+}
+class Rectangle: Figure {
+    override func squareOfFigure() -> Float{
+        square = height * width
+        return square
+    }
+    override func perimeterOfFigure() -> Float {
+        perimeter = (height + width) * 2
+        return perimeter
+    }
+    func description(){
+        print("Rectangle area is: \(squareOfFigure()), and perimeter Of Figure is: \(perimeterOfFigure())")
+        }
+    
+}
+let myRectangle = Rectangle(height: 2.0, width: 4.0, radius: 0.0, square: 0.0, perimeter: 0.0)
+myRectangle.description()
